@@ -37,7 +37,6 @@ class Student extends Person {
       this.favSubjects.forEach(subject => {
         console.log(`${subject}`);
       })
-      
     }
     PRAssignment(subject) {
       console.log(`${this.name} has submitted a PR for ${subject}.`)
@@ -47,3 +46,37 @@ class Student extends Person {
     }
 };
 
+class ProjectManager extends Instructor {
+    constructor(props) {
+        super(props);
+        this.gradClassName = props.gradClassName;
+        this.favInstructor = props.favInstructor;
+        }
+        standUp(slackChan) {
+          console.log(`${this.name} announces to ${slackChan}, @channel standy times!`)
+        }
+        debugsCode(student, subject) {
+          console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
+        }
+};
+
+
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+  });
+  
+const bob = new Student ({
+    name: 'Bob',
+    age: 26,
+    location: 'Utah',
+    gender: 'Male',
+    previousBackground: 'Student',
+    className: 'WEBPT5',
+    favSubjects: ['World History', 'US History', 'PE']
+});
