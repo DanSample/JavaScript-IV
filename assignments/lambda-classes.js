@@ -41,7 +41,7 @@ class Student extends Person {
     PRAssignment(subject) {
       console.log(`${this.name} has submitted a PR for ${subject}.`)
     }
-    sprintChallenge() {
+    sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}.`)
     }
 };
@@ -61,7 +61,19 @@ class ProjectManager extends Instructor {
 };
 
 
-const fred = new Instructor({
+const marco = new ProjectManager({
+    name: 'Marco',
+    location: 'The Moon',
+    age: 106,
+    gender: 'male',
+    favLanguage: 'CSS',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the Pull Requests`,
+    gradClassName: 'WEB1',
+    favInstructor: 'Cam Pope'
+  });
+
+  const fred = new Instructor({
     name: 'Fred',
     location: 'Bedrock',
     age: 37,
@@ -76,7 +88,34 @@ const bob = new Student ({
     age: 26,
     location: 'Utah',
     gender: 'Male',
-    previousBackground: 'Student',
+    previousBackground: 'insurance',
     className: 'WEBPT5',
-    favSubjects: ['World History', 'US History', 'PE']
+    favSubjects: [
+      'World History',
+      'US History',
+      'PE'
+    ]
 });
+
+const cedric = new Student ({
+    name: 'Cedric',
+    age: 22,
+    location: 'Bay Area',
+    gender: 'Male',
+    previousBackground: 'Wizardry',
+    className: 'WEBPT5',
+    favSubjects: [
+      'How to be a Wizard',
+      'How to be a better Wizard',
+      'How to Lead all the Wizards'
+    ]
+});
+
+bob.speak();
+fred.demo('Javascript');
+fred.grade(cedric, 'Javascript');
+cedric.listsSubjects();
+bob.PRAssignment('Javascript');
+cedric.sprintChallenge('Javascript');
+marco.standUp('webpt5_marco');
+marco.debugsCode(bob, 'CSS');
